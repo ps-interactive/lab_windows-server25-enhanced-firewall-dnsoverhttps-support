@@ -1,0 +1,22 @@
+listen_addresses = ['172.31.24.210:443']
+user_name = 'nt authority\localservice'
+max_clients = 250
+
+cert_file = 'dnscrypt-proxy.pem'
+key_file = 'dnscrypt-proxy.key'
+
+server_names = ['cloudflare', 'google']
+
+[static]
+
+  [static.'cloudflare']
+  stamp = 'sdns://AgcAAAAAAAAADjEwNC4xNi4xMDAuMTAwICXnD1x8U1u_qVtMflVRr03Hd_NrIt0ZwZKpRLM5qCbmFkZG5zLmNsb3VkZmxhcmUtZG5zLmNvbQ'
+
+  [static.'google']
+  stamp = 'sdns://AgcAAAAAAAAACzguOC44LjgIDZkGIMvKqlzGpOuehclHZWWTx4XBrxfA6fO0QJ3k8t1bIlY2hhY2hhY2hhY2hhY2hhY2hhY2hhY2g'
+
+[dnscrypt_servers]
+require_dnssec = true
+
+[sources]
+  # Disabled in offline environments
